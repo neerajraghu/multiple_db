@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: username
+  password: password
+  host: localhost
+
+development:
+  primary:
+    <<: *default
+    database: multipldb_development
+    migrations_paths: db/primary_migrate
+
+  primary_replica:
+    <<: *default
+    database: multipldb_development_replica
+    replica: true
+
+  primary2:
+    <<: *default
+    database: multipldb_development2
+    migrations_paths: db/primary2_migrate
+
+  primary_replica2:
+    <<: *default
+    database: multipldb_development_replica2
+    replica: true
+
