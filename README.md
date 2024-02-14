@@ -1,1 +1,1 @@
-Demo application to demonstarte multiple database connections with Rails 6.
+Demo application to demonstrate multiple database connections with Rails 6.
